@@ -1,0 +1,13 @@
+{"timestamp":"2026-03-04T09:03:55.723982Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-04T09:03:55.760233Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_etl_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-04T09:03:56.198350Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-04T09:03:56.212463Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-04T09:03:56.215258Z","level":"info","event":"Current task name:load_data","logger":"task.stdout"}
+{"timestamp":"2026-03-04T09:03:56.216724Z","level":"info","event":"Dag name:etl","logger":"task.stdout"}
+{"timestamp":"2026-03-04T09:03:56.928991Z","level":"warning","event":"Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.","category":"FutureWarning","filename":"/opt/airflow/dags/my_etl_dag.py","lineno":83,"logger":"py.warnings"}
+{"timestamp":"2026-03-04T09:03:58.942789Z","level":"info","event":"Cleaned dataset saved to: /opt/airflow/data/clean_salesorder.csv","logger":"task.stdout"}
+{"timestamp":"2026-03-04T09:03:58.953206Z","level":"info","event":"Final row count: 1200","logger":"task.stdout"}
+{"timestamp":"2026-03-04T09:03:58.944700Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}
+{"timestamp":"2026-03-04T09:03:59.130152Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-04T09:03:59.141562Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-04T09:03:59.149501Z","level":"info","event":"Task operator:<Task(PythonOperator): load_data>","logger":"task.stdout"}

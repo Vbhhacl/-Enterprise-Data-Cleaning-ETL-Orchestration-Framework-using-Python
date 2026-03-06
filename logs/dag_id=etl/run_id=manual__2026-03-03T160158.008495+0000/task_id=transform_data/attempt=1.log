@@ -1,0 +1,35 @@
+{"timestamp":"2026-03-03T16:02:00.816991Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-03T16:02:00.820194Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_etl_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T16:02:00.866261Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:00.867624Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:00.868461Z","level":"info","event":"Current task name:transform_data","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:00.868895Z","level":"info","event":"Dag name:etl","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:00.909081Z","level":"warning","event":"Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.","category":"FutureWarning","filename":"/opt/airflow/dags/my_etl_dag.py","lineno":29,"logger":"py.warnings"}
+{"timestamp":"2026-03-03T16:02:01.063460Z","level":"info","event":"Starting Cleaning Process...","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.068173Z","level":"info","event":"Duplicates Removed: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.068949Z","level":"info","event":"Null values before cleaning:","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.070522Z","level":"info","event":"orderid                0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.071164Z","level":"info","event":"date                   0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.071610Z","level":"info","event":"customerid             0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.072158Z","level":"info","event":"product                0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.073064Z","level":"info","event":"quantity               0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.073625Z","level":"info","event":"unitprice              0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.074148Z","level":"info","event":"shippingaddress        0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.074539Z","level":"info","event":"paymentmethod          0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.075071Z","level":"info","event":"orderstatus            0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.075590Z","level":"info","event":"trackingnumber         0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.076034Z","level":"info","event":"itemsincart            0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.076371Z","level":"info","event":"couponcode             0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.076687Z","level":"info","event":"referralsource         0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.077064Z","level":"info","event":"totalprice             0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.077355Z","level":"info","event":"discount_percentage    0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.077625Z","level":"info","event":"profit                 0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.077931Z","level":"info","event":"discount_amount        0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.078231Z","level":"info","event":"total_amount           0","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.078553Z","level":"info","event":"dtype: int64","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.082623Z","level":"info","event":"Final Cleaned Rows: 1200","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.083289Z","level":"info","event":"Transformation Completed.","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.149419Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}
+{"timestamp":"2026-03-03T16:02:01.180948Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.181598Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-03T16:02:01.182248Z","level":"info","event":"Task operator:<Task(PythonOperator): transform_data>","logger":"task.stdout"}

@@ -1,0 +1,21 @@
+{"timestamp":"2026-02-24T08:34:13.050559Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-02-24T08:34:13.445548Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_etl_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-02-24T08:34:14.141175Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.143018Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.145476Z","level":"info","event":"Current task name:load_data","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.159305Z","level":"info","event":"Dag name:etl","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.368146Z","level":"warning","event":"Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.","category":"FutureWarning","filename":"/opt/airflow/dags/my_etl_dag.py","lineno":61,"logger":"py.warnings"}
+{"timestamp":"2026-02-24T08:34:14.704855Z","level":"info","event":"Final dataset ready!","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.899099Z","level":"info","event":"     OrderID       Date  ... Total_amount Profit_Margin","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.900568Z","level":"info","event":"0  ORD200014 2023-03-27  ...     707.9940            25","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.914414Z","level":"info","event":"1  ORD200020 2023-05-08  ...     265.6675            25","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.918355Z","level":"info","event":"2  ORD200041 2023-12-05  ...    1784.3500            25","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.930912Z","level":"info","event":"3  ORD200046 2024-06-26  ...    2150.5600            25","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.932122Z","level":"info","event":"4  ORD200070 2023-05-26  ...     579.2100            25","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.934084Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.946087Z","level":"info","event":"[5 rows x 19 columns]","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.947308Z","level":"info","event":"Final row count: 1200","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:14.900811Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}
+{"timestamp":"2026-02-24T08:34:15.100141Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:15.111037Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-02-24T08:34:15.112022Z","level":"info","event":"Task operator:<Task(PythonOperator): load_data>","logger":"task.stdout"}

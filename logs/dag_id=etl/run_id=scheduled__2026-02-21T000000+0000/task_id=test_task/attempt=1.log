@@ -1,0 +1,29 @@
+{"timestamp":"2026-02-21T14:26:48.741971Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-02-21T14:26:48.744766Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_etl_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-02-21T14:26:48.858390Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-02-21T14:26:48.859389Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-02-21T14:26:48.860143Z","level":"info","event":"Current task name:test_task","logger":"task.stdout"}
+{"timestamp":"2026-02-21T14:26:48.860766Z","level":"info","event":"Dag name:etl","logger":"task.stdout"}
+{"timestamp":"2026-02-21T14:26:48.864423Z","level":"info","event":"Airflow is working!","logger":"task.stdout"}
+{"timestamp":"2026-02-21T14:26:48.865106Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}
+{"timestamp":"2026-02-21T14:26:48.917894Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-02-21T14:26:48.918992Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-02-21T14:26:48.919751Z","level":"info","event":"Task operator:<Task(PythonOperator): test_task>","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.804464Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-02-21T15:11:57.807401Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_etl_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-02-21T15:11:57.918566Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.919184Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.919920Z","level":"info","event":"Current task name:test_task","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.920478Z","level":"info","event":"Dag name:etl","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.956437Z","level":"info","event":"Dataset Loaded Successfully","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.982395Z","level":"info","event":"  OrderID\\tDate\\tCustomerID\\tProduct\\tQuantity\\tUnitPrice\\tShippingAddress\\tPaymentMethod\\tOrderStatus\\tTrackingNumber\\tItemsInCart\\tCouponCode\\tReferralSource\\tTotalPrice\\tDiscount percentage \\tProfit \\tDiscount Amount\\tTotal amount","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.983052Z","level":"info","event":"0  ORD200014\\t27 March 2023\\tC98474\\tTablet\\t2\\t3...","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.983716Z","level":"info","event":"1  ORD200020\\t08 May 2023\\tC54829\\tChair\\t5\\t62.5...","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.984262Z","level":"info","event":"2  ORD200041\\t05 December 2023\\tC20212\\tMonitor\\t...","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.984842Z","level":"info","event":"3  ORD200046\\t26 June 2024\\tC43212\\tMonitor\\t4\\t5...","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.985344Z","level":"info","event":"4  ORD200070\\t26 May 2023\\tC25123\\tDesk\\t1\\t629.2...","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.985850Z","level":"info","event":"Total Rows: 1200","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:57.983561Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}
+{"timestamp":"2026-02-21T15:11:58.038844Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:58.039451Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-02-21T15:11:58.040074Z","level":"info","event":"Task operator:<Task(PythonOperator): test_task>","logger":"task.stdout"}
