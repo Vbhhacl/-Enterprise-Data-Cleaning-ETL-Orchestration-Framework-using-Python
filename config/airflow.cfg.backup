@@ -1,0 +1,4 @@
+# Backup of airflow.cfg before modifications for TODO plan
+# Created: $(date)
+`cp config/airflow.cfg config/airflow.cfg.backup`
+

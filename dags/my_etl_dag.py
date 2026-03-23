@@ -1,9 +1,21 @@
 from airflow import DAG
 from airflow.providers.standard.operators.python import PythonOperator
+from airflow.sensors.filesystem import FileSensor
+from airflow.providers.standard.operators.email import EmailOperator
+from airflow.utils.email import send_email_smtp
+from datetime import timedelta
+import logging
 from datetime import datetime
 import pandas as pd
 
 DATA_PATH = "/opt/airflow/data/salesorder.csv"
+
+default_args = {
+    'retries': 3,
+    'retry_delay': timedelta(minutes=5),
+    'email_on_failure': True,
+    'email': ['vaibhavih2025@gmail.com']
+}
 
 
 # -------------------- EXTRACT --------------------
@@ -91,11 +103,21 @@ def load(**context):
 
 # -------------------- DAG --------------------
 with DAG(
-    dag_id="etl",
+    dag_id="my_etl_dag",
+    default_args=default_args,
     start_date=datetime(2024, 1, 1),
     schedule="@daily",
-    catchup=False
+    catchup=False,
+    tags=['etl', 'sales'],
 ) as dag:
+
+    wait_for_data = FileSensor(
+        task_id='wait_for_data',
+        filepath=DATA_PATH,
+        fs_conn_id='local_filesystem',
+        timeout=3600,
+        poke_interval=60
+    )
 
     extract_task = PythonOperator(
         task_id="extract_data",
@@ -107,9 +129,17 @@ with DAG(
         python_callable=transform
     )
 
+    send_failure_email = EmailOperator(
+        task_id='send_failure_email',
+        to=['vaibhavih2025@gmail.com'],
+        subject="ETL Transformation Failed",
+        html_content="The transformation task in {{ dag.dag_id }} failed. Please check logs.",
+        trigger_rule='one_failed'
+    )
+
     load_task = PythonOperator(
         task_id="load_data",
         python_callable=load
     )
 
-    extract_task >> transform_task >> load_task
+    wait_for_data >> extract_task >> transform_task >> [load_task, send_failure_email]
