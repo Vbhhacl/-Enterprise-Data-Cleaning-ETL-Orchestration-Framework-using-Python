@@ -56,13 +56,17 @@ x-airflow-common:
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-    AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
+    AIRFLOW__CORE__AUTH_MANAGER: airflow.api_fastapi.auth.managers.simple.simple_auth_manager.SimpleAuthManager
+    AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.default.DefaultAuthBackend'
+    AIRFLOW__WEBSERVER__AUTH_BACKEND: airflow.www.security.NoneAuthBackend
+    AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: 'true'
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
-    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__CORE__DAG_FILE_PROCESS_INTERVAL: '60'
+    AIRFLOW__WEBERVER__CONFIG_FILE: '/opt/airflow/config/webserver_config.py'
     AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
     # yamllint disable rule:line-length
     # Use simple http server on scheduler for health checks
@@ -74,6 +78,18 @@ x-airflow-common:
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     # The following line can be used to set a custom config file, stored in the local config folder
     AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
+    
+    # -------------------------------------------------------------
+    # ADDED FOR MILESTONE 3: EMAIL NOTIFICATION INTEGRATION
+    # -------------------------------------------------------------
+    AIRFLOW__SMTP__SMTP_HOST: 'smtp.gmail.com'
+    AIRFLOW__SMTP__SMTP_STARTTLS: 'True'
+    AIRFLOW__SMTP__SMTP_SSL: 'False'
+    AIRFLOW__SMTP__SMTP_PORT: '587'
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: 'vaibhavih2025@gmail.com'
+    AIRFLOW__SMTP__SMTP_USER: 'vaibhavih2025@gmail.com'
+    AIRFLOW__SMTP__SMTP_PASSWORD: '${GMAIL_APP_PASSWORD}' 
+
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs

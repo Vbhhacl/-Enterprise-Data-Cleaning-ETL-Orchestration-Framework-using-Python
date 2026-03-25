@@ -1,0 +1,28 @@
+{"timestamp":"2026-03-21T16:42:06.570797Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-21T16:42:06.572315Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_etl_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-21T16:42:07.014661Z","level":"warning","event":"Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.","category":"FutureWarning","filename":"/opt/airflow/dags/my_etl_dag.py","lineno":29,"logger":"py.warnings"}
+{"timestamp":"2026-03-21T16:42:07.110842Z","level":"info","event":"Starting Cleaning Process...","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.118205Z","level":"info","event":"Duplicates Removed: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.118575Z","level":"info","event":"Null values before cleaning:","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.119805Z","level":"info","event":"orderid                0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.120118Z","level":"info","event":"date                   0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.120377Z","level":"info","event":"customerid             0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.120635Z","level":"info","event":"product                0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.120944Z","level":"info","event":"quantity               0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.121269Z","level":"info","event":"unitprice              0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.121553Z","level":"info","event":"shippingaddress        0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.121647Z","level":"info","event":"paymentmethod          0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.121724Z","level":"info","event":"orderstatus            0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.121794Z","level":"info","event":"trackingnumber         0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.121864Z","level":"info","event":"itemsincart            0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.121970Z","level":"info","event":"couponcode             0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.122043Z","level":"info","event":"referralsource         0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.122112Z","level":"info","event":"totalprice             0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.122180Z","level":"info","event":"discount_percentage    0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.122249Z","level":"info","event":"profit                 0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.122316Z","level":"info","event":"discount_amount        0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.122383Z","level":"info","event":"total_amount           0","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.122452Z","level":"info","event":"dtype: int64","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.130281Z","level":"info","event":"Final Cleaned Rows: 1200","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.130438Z","level":"info","event":"Transformation Completed.","logger":"task.stdout"}
+{"timestamp":"2026-03-21T16:42:07.176767Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}

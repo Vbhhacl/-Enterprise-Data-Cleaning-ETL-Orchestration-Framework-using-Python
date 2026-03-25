@@ -1,0 +1,12 @@
+{"timestamp":"2026-03-21T15:02:42.913833Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-21T15:02:42.914730Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_etl_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-21T15:02:45.918727Z","level":"warning","event":"Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.","category":"FutureWarning","filename":"/opt/airflow/dags/my_etl_dag.py","lineno":83,"logger":"py.warnings"}
+{"timestamp":"2026-03-21T15:02:46.215134Z","level":"info","event":"Cleaned dataset saved to: /opt/airflow/data/clean_salesorder.csv","logger":"task.stdout"}
+{"timestamp":"2026-03-21T15:02:46.217853Z","level":"info","event":"Final row count: 1200","logger":"task.stdout"}
+{"timestamp":"2026-03-21T15:02:46.219026Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}
+{"timestamp":"2026-03-21T15:19:38.656046Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-21T15:19:38.658191Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_etl_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-21T15:19:39.968382Z","level":"warning","event":"Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.","category":"FutureWarning","filename":"/opt/airflow/dags/my_etl_dag.py","lineno":83,"logger":"py.warnings"}
+{"timestamp":"2026-03-21T15:19:40.108129Z","level":"info","event":"Cleaned dataset saved to: /opt/airflow/data/clean_salesorder.csv","logger":"task.stdout"}
+{"timestamp":"2026-03-21T15:19:40.108448Z","level":"info","event":"Final row count: 1200","logger":"task.stdout"}
+{"timestamp":"2026-03-21T15:19:40.109973Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}
