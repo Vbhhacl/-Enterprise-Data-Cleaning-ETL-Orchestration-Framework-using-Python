@@ -1,16 +1,30 @@
-# Airflow Docker ETL Pipeline
+# Airflow Docker ETL Pipeline ✅
+
+## Project Milestones (Completed 8-Week Development)
+
+✅ **Milestone 1: Weeks 1–2 Environment Setup & Pipeline Design**  
+Configured Airflow Docker environment (`docker-compose.yaml`, `config/airflow.cfg`), defined ETL architecture, set up extraction scripts in `dags/`.
+
+✅ **Milestone 2: Weeks 3–4 Data Cleaning & Transformation**  
+Implemented pandas-based cleaning rules in `data_preprocessing.py`, transformations for salesorder.csv → clean_salesorder.csv, pipeline testing via multiple DAG runs.
+
+✅ **Milestone 3: Weeks 5–6 Orchestration & Monitoring**  
+Added Airflow DAGs (`my_etl_dag.py`, `monitoring_dag.py`) with scheduling, logging (`logs/`), Gmail alerts (EmailOperator).
+
+✅ **Milestone 4: Weeks 7–8 Dashboards & Deployment**  
+Integrated dashboard framework (Streamlit/Dash ready), tested on production-scale datasets, finalized deployable framework.
 
 ## Overview
 
 This project provides a complete, Dockerized Apache Airflow environment for orchestrating ETL (Extract, Transform, Load) workflows on sales order data. It features a production-ready setup with persistent volumes for DAGs, logs, data, and Airflow metadata.
 
 **Key Features:**
-- Fully containerized Airflow stack (webserver, scheduler, worker)
-- Custom ETL DAGs for sales order data processing
-- Persistent PostgreSQL metadata database
-- Sample data pipeline: `salesorder.csv` → `clean_salesorder.csv`
-- Scheduled and manual DAG execution with historical logs
-- Configurable via `docker-compose.yaml` and `airflow.cfg`
+  - Fully containerized Airflow stack (webserver, scheduler, worker)
+  - Custom ETL DAGs for sales order data processing
+  - Persistent PostgreSQL metadata database
+  - Sample data pipeline: `salesorder.csv` → `clean_salesorder.csv`
+  - Scheduled and manual DAG execution with historical logs
+  - Configurable via `docker-compose.yaml` and `airflow.cfg`
 
 ## Project Structure
 
@@ -93,17 +107,35 @@ airflow-docker/
 
 ## DAG Details
 
-### ETL Pipeline (`etl_dag`)
-- **Schedule:** Daily (`0 0 * * *`)
+### Enhanced ETL Pipeline (`my_etl_dag`)
+- **Schedule:** Daily (`@daily`)
 - **Tasks:**
-  1. **`extract_data`**: Reads `data/salesorder.csv`
-  2. **`transform_data`**: Cleans & preprocesses using `data_preprocessing.py`
-  3. **`load_data`**: Writes to `data/clean_salesorder.csv`
+  1. **`wait_for_data`**: FileSensor waits for `salesorder.csv`
+  2. **`extract_data`**: Reads raw CSV (retries=3)
+  3. **`transform_data`**: Cleans/normalizes data (retries=3, structured logging)
+  4. **`load_data`**: Writes cleaned CSV
+  5. **`send_failure_email`**: Gmail alert on transform failure
+
+**Features Added:**
+  - Retry logic with 5min delay
+  - Gmail notifications (SMTP configured)
+  - File existence check
+  - Structured logging
+  - Tags: ['etl', 'sales']
 
 **Data Flow:**
 ```
-Raw: salesorder.csv ──[extract]──► Pandas DF ──[transform: clean, validate]──► clean_salesorder.csv [load]
-```
+salesorder.csv ──[wait]──[extract]──► [transform] ──► clean_salesorder.csv [load]
+                              ↓ (fail)
+                         Email Alert
+
+### Monitoring DAG (`monitoring_dag`)
+- **Schedule:** Weekly (Monday 9AM)
+- **Tasks:**
+  1. **`health_check`**: Calculates ETL success rate (last 7 days)
+  2. **`send_alert`**: Email if success rate <95%
+
+**Alert Threshold:** >5% failure rate triggers Gmail notification
 
 ### Customization
 Edit DAGs in `dags/` and restart scheduler:
@@ -181,14 +213,13 @@ docker-compose exec airflow-worker airflow dags test etl_dag $(date -Iseconds --
 
 ## Production Considerations
 
-- **Secrets:** Use Airflow Variables/Connections
-- **Monitoring:** Enable Flower (`docker-compose up flower`)
-- **Scaling:** Increase `worker_count` in `docker-compose.yaml`
-- **Backup:** Regularly backup `./postgres-data/` and `./logs/`
+  - **Secrets:** Use Airflow Variables/Connections
+  - **Monitoring:** Enable Flower (`docker-compose up flower`)
+  - **Scaling:** Increase `worker_count` in `docker-compose.yaml`
+  - **Backup:** Regularly backup `./postgres-data/` and `./logs/`
 
 ## License
-MIT License - feel free to use and modify.
+See [licence.txt](licence.txt) (MIT License)
 
----
-
+*Production-ready 8-week ETL framework built for sales order workflows.*
 
