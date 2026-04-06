@@ -1,7 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-import pandas as pd
 import smtplib
 import logging
 
@@ -22,7 +21,10 @@ def send_failure_email(context):
 
     sender = "vaibhavih2025@gmail.com"
     receiver = "vaibhavih2025@gmail.com"
+    
+    # 🚨 PRO TIP: Be careful not to show this password on the projector during your 5-min demo!
     password = "ysolicrcwfhznjaq" 
+    
     subject = f"Airflow Task Failed: {task_id}"
     body = f"Task: {task_id}\nDAG: {dag_id}\nError: {exception}"
     message = f"Subject: {subject}\n\n{body}"
@@ -31,7 +33,6 @@ def send_failure_email(context):
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.ehlo()
             server.starttls()
-            server.ehlo()
             server.login(sender, password)
             server.sendmail(sender, receiver, message)
         logging.info("Email sent successfully")
@@ -40,6 +41,7 @@ def send_failure_email(context):
 
 # 🔹 ETL tasks
 def extract():
+    import pandas as pd # Moved inside to prevent Airflow Scheduler crashes
     logging.info("Starting Extract Task")
     # Read original tab-separated data
     df = pd.read_csv('/opt/airflow/data/salesorder.csv', sep="\t")
@@ -49,6 +51,7 @@ def extract():
     logging.info(f"Data Extracted Successfully. Original rows: {len(df)}")
 
 def transform():
+    import pandas as pd # Moved inside
     logging.info("Starting Transform Task")
     # Read the extracted data
     df = pd.read_csv('/opt/airflow/data/salesorder_extracted.csv')
@@ -83,10 +86,10 @@ def transform():
     logging.info(f"Data Transformed Successfully. Cleaned rows: {len(df)}")
     
     # to test your email alert again, uncomment the line below
-    
     # raise Exception("Testing Email Alert")
 
 def load():
+    import pandas as pd 
     logging.info("Starting Load Task")
     # Load the final cleaned data
     df = pd.read_csv('/opt/airflow/data/salesorder_cleaned.csv')
@@ -106,19 +109,19 @@ with DAG(
     extract_task = PythonOperator(
         task_id='extract',
         python_callable=extract,
-        on_failure_callback=send_failure_email
+        on_failure_callback=send_failure_email # Triggers email ONLY if this fails
     )
 
     transform_task = PythonOperator(
         task_id='transform',
         python_callable=transform,
-        on_failure_callback=send_failure_email
+        on_failure_callback=send_failure_email # Triggers email ONLY if this fails
     )
 
     load_task = PythonOperator(
         task_id='load',
         python_callable=load,
-        on_failure_callback=send_failure_email
+        on_failure_callback=send_failure_email # Triggers email ONLY if this fails
     )
 
     # Task Dependencies
