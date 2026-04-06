@@ -22,8 +22,7 @@ def send_failure_email(context):
 
     sender = "vaibhavih2025@gmail.com"
     receiver = "vaibhavih2025@gmail.com"
-    password = "ysolicrcwfhznjaq" # Remember to keep this private!
-
+    password = "ysolicrcwfhznjaq" 
     subject = f"Airflow Task Failed: {task_id}"
     body = f"Task: {task_id}\nDAG: {dag_id}\nError: {exception}"
     message = f"Subject: {subject}\n\n{body}"
@@ -83,7 +82,7 @@ def transform():
     df.to_csv('/opt/airflow/data/salesorder_cleaned.csv', index=False)
     logging.info(f"Data Transformed Successfully. Cleaned rows: {len(df)}")
     
-    # If you want to test your email alert again, uncomment the line below!
+    # to test your email alert again, uncomment the line below
     
     # raise Exception("Testing Email Alert")
 
